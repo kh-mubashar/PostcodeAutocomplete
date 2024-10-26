@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { usePostcodeDetails } from '@/hooks/usePostcodeDetails';
 import { usePostcodeAutocomplete } from '@/hooks/usePostcodeAutocomplete';
+import { PostcodeDetails } from '../PostcodeDetails/PostcodeDetails';
 
 const Container = styled.div`
   position: relative;
@@ -44,6 +45,7 @@ export const Autocomplete = () => {
   const [queryDetails, setQueryDetails] = useState('');
   
   const { data: suggestions } = usePostcodeAutocomplete(query);
+  console.log(suggestions);// check if the test are sending data
   const { data: postcodeDetails } = usePostcodeDetails(queryDetails);
   console.log(postcodeDetails);
 
@@ -66,6 +68,7 @@ export const Autocomplete = () => {
           ))}
         </SuggestionsBox>
       )}
+      {postcodeDetails && <PostcodeDetails details={postcodeDetails}/>}
     </Container>
   );
 };

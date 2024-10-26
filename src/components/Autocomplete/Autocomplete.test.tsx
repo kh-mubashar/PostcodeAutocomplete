@@ -1,6 +1,5 @@
-// src/tests/Autocomplete.test.tsx
+// tests/Autocomplete.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it } from 'node:test';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Autocomplete } from './Autocomplete';
 
